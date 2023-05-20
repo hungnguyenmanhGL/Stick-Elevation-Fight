@@ -1,0 +1,40 @@
+enemy_12.png
+size:1024,256
+filter:Linear,Linear
+pma:true
+enemy_12/Group 1
+bounds:452,119,135,123
+rotate:90
+enemy_12/Layer 93
+bounds:303,56,147,198
+enemy_12/body
+bounds:456,15,102,73
+rotate:90
+enemy_12/canh trai
+bounds:2,31,223,201
+rotate:90
+enemy_12/duoi
+bounds:205,39,215,96
+rotate:90
+enemy_12/head1
+bounds:349,9,58,45
+enemy_12/head2
+bounds:48,3,46,26
+offsets:0,0,47,26
+enemy_12/head3
+bounds:2,2,44,27
+enemy_12/leg_1
+bounds:409,9,45,45
+offsets:0,0,45,46
+enemy_12/leg_2
+bounds:303,8,46,44
+rotate:90
+enemy_12/thight_1
+bounds:577,174,37,80
+offsets:1,1,39,82
+enemy_12/thight_2
+bounds:577,131,65,41
+offsets:1,1,67,43
+enemy_12/wing  copy
+bounds:531,19,98,129
+rotate:90

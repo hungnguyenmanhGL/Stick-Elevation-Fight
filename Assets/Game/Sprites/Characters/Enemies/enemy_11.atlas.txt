@@ -1,0 +1,12 @@
+enemy_11.png
+size:512,128
+filter:Linear,Linear
+pma:true
+body
+bounds:348,29,75,85
+wing_L
+bounds:2,2,112,171
+rotate:90
+wing_R
+bounds:175,2,112,171
+rotate:90

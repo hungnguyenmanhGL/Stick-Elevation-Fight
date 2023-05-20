@@ -1,0 +1,189 @@
+enemy_2.png
+size:1024,256
+filter:Linear,Linear
+pma:true
+eff/bl_01_0
+bounds:606,103,48,32
+offsets:7,29,102,102
+rotate:90
+eff/bl_01_1
+bounds:108,2,74,53
+offsets:7,28,102,102
+rotate:90
+eff/bl_01_2
+bounds:264,4,73,54
+offsets:14,30,102,102
+rotate:90
+eff/bl_01_3
+bounds:163,2,75,53
+offsets:17,31,102,102
+rotate:90
+eff/bl_01_4
+bounds:320,5,72,47
+offsets:23,37,102,102
+rotate:90
+eff/bl_01_5
+bounds:218,3,74,44
+offsets:23,39,102,102
+rotate:90
+eff/bl_01_6
+bounds:501,90,59,29
+offsets:23,54,102,102
+rotate:90
+eff/bl_01_7
+bounds:492,25,60,28
+offsets:23,54,102,102
+rotate:90
+eff/bl_01_8
+bounds:66,57,17,19
+offsets:66,55,102,102
+eff/bl_01_9
+bounds:467,3,61,18
+offsets:23,56,102,102
+enemy_0/arm L
+bounds:627,155,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_0/arm R
+bounds:633,207,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_0/body
+bounds:145,79,45,66
+enemy_0/hand L
+bounds:426,87,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_0/hand R
+bounds:451,87,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_0/head
+bounds:333,151,103,84
+offsets:1,0,104,84
+rotate:90
+enemy_0/leg L
+bounds:521,153,37,53
+offsets:0,0,37,54
+rotate:90
+enemy_0/leg R
+bounds:576,153,46,49
+offsets:0,0,47,49
+rotate:90
+enemy_0/thigh L
+bounds:419,151,38,49
+offsets:1,0,39,49
+rotate:90
+enemy_0/thigh R
+bounds:522,36,35,52
+enemy_1/arm L
+bounds:632,24,47,24
+offsets:0,0,47,25
+enemy_1/arm R
+bounds:633,54,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_1/body
+bounds:192,79,45,66
+enemy_1/hand L
+bounds:475,192,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_1/hand R
+bounds:500,192,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_1/head
+bounds:369,2,96,82
+offsets:0,1,96,83
+enemy_1/leg L
+bounds:530,2,32,49
+offsets:1,0,33,49
+rotate:90
+enemy_1/leg R
+bounds:581,10,36,49
+rotate:90
+enemy_1/thigh L
+bounds:470,151,38,49
+offsets:1,0,39,49
+rotate:90
+enemy_1/thigh R
+bounds:532,100,36,51
+offsets:0,1,36,52
+enemy_2/arm L
+bounds:640,106,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_2/arm R
+bounds:653,158,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_2/body
+bounds:239,79,45,66
+enemy_2/hand L
+bounds:419,191,63,26
+offsets:1,0,64,26
+rotate:90
+enemy_2/hand R
+bounds:447,191,63,26
+offsets:0,0,64,26
+rotate:90
+enemy_2/head
+bounds:243,147,107,88
+rotate:90
+enemy_2/leg L
+bounds:559,48,37,50
+offsets:0,1,37,51
+enemy_2/leg R
+bounds:2,7,38,52
+offsets:0,0,38,53
+rotate:90
+enemy_2/thigh L
+bounds:56,7,38,50
+offsets:1,0,39,50
+rotate:90
+enemy_2/thigh R
+bounds:558,201,37,53
+enemy_3/arm L
+bounds:659,207,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_3/arm R
+bounds:659,57,47,24
+offsets:0,0,47,25
+rotate:90
+enemy_3/body
+bounds:286,79,45,66
+enemy_3/hand L
+bounds:467,23,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_3/hand R
+bounds:476,87,62,23
+offsets:1,0,64,23
+rotate:90
+enemy_3/head
+bounds:145,147,107,96
+offsets:0,0,107,97
+rotate:90
+enemy_3/leg L
+bounds:598,50,33,49
+offsets:0,8,46,57
+enemy_3/leg R
+bounds:525,197,31,57
+offsets:15,0,46,57
+enemy_3/thigh L
+bounds:570,101,34,50
+offsets:0,0,37,50
+enemy_3/thigh R
+bounds:597,204,34,50
+offsets:2,0,37,50
+weapon/weapon_02_1
+bounds:2,47,62,207
+offsets:0,0,63,207
+weapon/weapon_03_1
+bounds:333,86,63,91
+offsets:0,186,63,277
+rotate:90
+weapon/weapon_06
+bounds:66,78,77,176

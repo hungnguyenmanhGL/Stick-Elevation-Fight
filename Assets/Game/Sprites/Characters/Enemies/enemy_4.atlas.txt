@@ -1,0 +1,57 @@
+enemy_4.png
+size:2048,256
+filter:Linear,Linear
+pma:true
+eff/smoke (1)
+bounds:253,2,173,58
+offsets:2,0,175,60
+eff/smoke (2)
+bounds:498,173,224,80
+offsets:3,0,227,81
+eff/smoke (3)
+bounds:724,184,221,69
+offsets:2,0,223,71
+eff/smoke (4)
+bounds:498,96,237,75
+offsets:2,0,239,77
+eff/smoke (5)
+bounds:428,2,242,73
+offsets:2,0,244,75
+eff/smoke (6)
+bounds:2,6,249,54
+offsets:3,0,252,56
+enemy_4/arm L
+bounds:737,30,152,101
+offsets:1,1,155,103
+rotate:90
+enemy_4/arm_R
+bounds:956,111,142,94
+offsets:1,1,144,96
+rotate:90
+enemy_4/body
+bounds:2,62,191,262
+offsets:3,0,194,262
+rotate:90
+enemy_4/hand_L
+bounds:266,77,176,114
+offsets:1,1,178,116
+rotate:90
+enemy_4/hand_R
+bounds:382,77,176,114
+offsets:1,1,178,116
+rotate:90
+enemy_4/head
+bounds:1088,11,118,100
+rotate:90
+enemy_4/leg_ R
+bounds:1155,151,95,102
+offsets:2,0,97,103
+enemy_4/leg_L
+bounds:1052,131,101,122
+enemy_4/thigh_R
+bounds:956,13,130,96
+offsets:1,1,132,98
+enemy_4/thight_L
+bounds:840,64,118,114
+offsets:2,1,121,116
+rotate:90

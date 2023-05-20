@@ -1,0 +1,17 @@
+*/Library
+*/Assets/UnityVS
+*/Temp
+*/obj
+*/Assets/UnityVS.meta
+*/.vs
+*/_Resharper.*
+*/.idea
+*/Logs
+
+*/Assets/Plugins/Editor/Jetbrains/**
+*/Assets/Plugins/Editor/Jetbrains.meta
+
+*.DotSettings
+*.DotSettings.user
+*.unityproj
+*.suo

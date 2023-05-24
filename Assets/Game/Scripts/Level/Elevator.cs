@@ -7,8 +7,12 @@ public class Elevator : Room
 {
     [SerializeField] private float movementSpeed = 2f;
 
+    private Coroutine autoMoveCoroutine = null;
+
     private bool canMove = true;
     private bool isMoving = false;
+    //private bool isDragging = false;
+    private bool stopSignal = false;
 
     private Vector3Int lastCellPos;
     private Vector3Int nextCellPos;
@@ -24,9 +28,29 @@ public class Elevator : Room
     protected override void OnEnable() {
         base.OnEnable();
         Hero.OnHeroStatusChanged += ChangeStateBasedOnHeroState;
+        LevelController.OnPlayerClicked += OnLevelReceivedClick;
     }
     private void OnDisable() {
         Hero.OnHeroStatusChanged -= ChangeStateBasedOnHeroState;
+        LevelController.OnPlayerClicked -= OnLevelReceivedClick;
+    }
+
+    private void OnLevelReceivedClick(Vector3 clickedPos) {
+        clickedPos = Camera.main.ScreenToWorldPoint(clickedPos);
+        Vector2Int clickedCell = (Vector2Int)pathHolder.Tilemap.WorldToCell(clickedPos);
+        //Debug.Log(clickedCell);
+        List<Vector2Int> path = pathHolder.GetPath((Vector2Int)GetCurrentCellPosition(), clickedCell);
+
+        if (autoMoveCoroutine != null) {
+            stopSignal = true;
+        }
+
+        if (!isMoving && canMove) {
+            
+            if (path != null) {
+                autoMoveCoroutine = StartCoroutine(MoveByPath(path));
+            }
+        }
     }
 
     private void ChangeStateBasedOnHeroState(HeroState heroState) {
@@ -80,15 +104,36 @@ public class Elevator : Room
         yield return null;
     }
 
-    private void OnMouseEnter() {
+    private IEnumerator MoveByPath(List<Vector2Int> path) {
+        //always start at 2nd count as first is the start cell
+        int currentCount = 1;
+        while (Vector2Int.Distance((Vector2Int)GetCurrentCellPosition(), path[path.Count - 1]) >= 0.0001f) {
+
+            nextPos = pathHolder.Tilemap.CellToWorld((Vector3Int)path[currentCount]);
+            yield return MoveToNextCellPosition();
+            if (stopSignal) {
+                stopSignal = false;
+                autoMoveCoroutine = null;
+                //Debug.Log("Stopped");
+                yield break;
+            }
+            currentCount++;
+        }
+        //Debug.Log("Done");
+        autoMoveCoroutine = null;
+    }
+
+    private void OnMouseOver() {
         lastCellPos = GetCurrentCellPosition();
+        //isDragging = true;
     }
 
     private void OnMouseDrag() {
         if (!canMove || isMoving) return;
 
+        //isDragging = true;
         bool allowedMove = true;
-
+        
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         lastCellPos = GetCurrentCellPosition();
   
@@ -101,4 +146,14 @@ public class Elevator : Room
             StartCoroutine(MoveToNextCellPosition());
         }
     }
+
+    //private void OnMouseUp() {
+    //    isDragging = false;
+    //}
+}
+
+public enum ElevatorState {
+    Idle = 0,
+    ManualMove = 1,
+    AutoMove = 2
 }

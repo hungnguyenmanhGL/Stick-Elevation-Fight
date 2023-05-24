@@ -19,7 +19,7 @@ public class Room : MonoBehaviour
 
     public static readonly Vector2 smallRoomSize = new Vector2(5,3);
     public static readonly Vector2 bigRoomSize = new Vector2(13,9);
-    public static readonly Vector2 playerRoomSize = new Vector2(3, 3);
+    public static readonly Vector2 elevatorSize = new Vector2(3, 3);
 
     public static readonly Vector2 bigRoomBattleVec = new Vector2(3.5f / 13f, 8.5f / 13f);
     public static readonly Vector2 smallRoomBattleVec = new Vector2(1 / 4f, 3 / 4f);
@@ -34,7 +34,7 @@ public class Room : MonoBehaviour
     protected virtual void OnEnable() {
         switch (roomType) {
             case RoomType.Elevator:
-                roomSize = playerRoomSize;
+                roomSize = elevatorSize;
                 break;
             case RoomType.Small:
                 roomSize = smallRoomSize;
@@ -116,7 +116,7 @@ public class Room : MonoBehaviour
     virtual public bool CheckConnectionToClickedRoom(Room destination) {
         if (destination is not Elevator) return false;
         else {
-            Vector2 destinationCellSize = playerRoomSize;
+            Vector2 destinationCellSize = elevatorSize;
             Vector2 destinationPos = destination.transform.position;
 
             if (destinationPos.y == transform.position.y) {
@@ -129,6 +129,21 @@ public class Room : MonoBehaviour
             }
         }
         return false;
+    }
+
+    virtual public Vector2Int GetConnectionCell() {
+        if (this is not Elevator) {
+            Vector3 leftDoorPos = transform.position;
+            Vector3 rightDoorPos = new Vector3(transform.position.x + roomSize.x, transform.position.y, transform.position.z);
+
+            Vector2Int leftDoorCell = (Vector2Int)LevelController.instance.PathHolder.Tilemap.WorldToCell(leftDoorPos);
+            Vector2Int rightDoorCell = (Vector2Int)LevelController.instance.PathHolder.Tilemap.WorldToCell(rightDoorPos);
+            //Debug.Log(leftDoorCell + " " + rightDoorCell);
+            if (!LevelController.instance.PathHolder.CheckCell(leftDoorCell)) {
+                return rightDoorCell;
+            }
+            return leftDoorCell;
+        } else return new Vector2Int(0, 0);
     }
 
     public Vector3Int GetCurrentCellPosition() {
@@ -170,7 +185,7 @@ public class Room : MonoBehaviour
                 return new Vector3(transform.position.x + 3*smallRoomSize.x / 4, transform.position.y, hero.transform.position.z);
             }
         } else if (roomType == RoomType.Elevator) {
-            return new Vector3(transform.position.x + playerRoomSize.x / 2, transform.position.y, hero.transform.position.z);
+            return new Vector3(transform.position.x + elevatorSize.x / 2, transform.position.y, hero.transform.position.z);
         }
         else if (roomType == RoomType.Big) {
             if (hero.transform.position.x < transform.position.x) {
@@ -231,7 +246,7 @@ public class Room : MonoBehaviour
         if (roomType == RoomType.Small) {
             return new Vector3(transform.position.x + smallRoomSize.x / 2, transform.position.y + smallRoomSize.y, 0);
         } else if (roomType == RoomType.Elevator) {
-            return new Vector3(transform.position.x + playerRoomSize.x / 2, transform.position.y + playerRoomSize.y, 0);
+            return new Vector3(transform.position.x + elevatorSize.x / 2, transform.position.y + elevatorSize.y, 0);
         }
         return Vector3.zero;
     }

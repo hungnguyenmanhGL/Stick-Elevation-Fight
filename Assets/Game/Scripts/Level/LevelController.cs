@@ -30,6 +30,9 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
     public delegate void DelPlayerClickedRoom(Room room);
     public static event DelPlayerClickedRoom OnPlayerClickedRoom;
 
+    public delegate void DelPlayerClicked(Vector3 clickedPos);
+    public static event DelPlayerClicked OnPlayerClicked;
+
     //to Hero.cs to dance 
     public delegate void DelWin();
     public static event DelWin OnWin;
@@ -48,6 +51,13 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
         else Destroy(this);
 
         playerInputListener.SetListener(this);
+    }
+
+    private void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            //UserClick(Input.mousePosition);
+            OnPlayerClicked?.Invoke(Input.mousePosition);
+        }
     }
 
     //called this before instantiate new level
@@ -102,11 +112,24 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
         if (hit.collider) {
             if (hit.collider.gameObject.TryGetComponent<Room>(out clickedRoom)) {
                 bool allowedMove = currentRoom.CheckConnectionToClickedRoom(clickedRoom);
+                //if already next to room
                 if (allowedMove && OnPlayerClickedRoom != null) {
                     OnPlayerClickedRoom(clickedRoom);
                     //=> Hero.MoveToRoom(room)
                 }
+                else {
+                    clickedRoom.GetConnectionCell();
+                }
             }
+        }
+    }
+
+    public void UserClick(Vector3 position) {
+        if (hero.CurrentRoom is Elevator e) {
+            Vector3 clickedPos = Camera.main.ScreenToWorldPoint(position);
+            Vector2Int clickedCell = (Vector2Int)pathHolder.Tilemap.WorldToCell(clickedPos);
+            //Debug.Log(clickedCell);
+            pathHolder.GetPath((Vector2Int)e.GetCurrentCellPosition(), clickedCell);
         }
     }
 

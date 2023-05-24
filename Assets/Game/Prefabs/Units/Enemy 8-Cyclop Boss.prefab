@@ -112,7 +112,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: enemy8/enemy8_win_weapon04
+  _animationName: idle
   loop: 1
   timeScale: 1
 --- !u!33 &1036776052670623643

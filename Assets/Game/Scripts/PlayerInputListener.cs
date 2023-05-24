@@ -20,7 +20,7 @@ public class PlayerInputListener : MonoBehaviour, IPointerClickHandler {
         this.listener = listener;
     }
 
-    //not called
+    //already translated to world position
     public void OnPointerClick(PointerEventData eventData) {
         if (listener != null) {
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(eventData.position);

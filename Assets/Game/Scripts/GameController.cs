@@ -9,7 +9,15 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public static LoadLevelOption pendingLoadLevelOption;
 
+    [Header("Refs")]
+    [SerializeField] private AudioManager audioManager;
+
+    [Header("Values")]
+    [SerializeField] private float maxLevel;
+
     private StateMachine<GameState> stateMachine;
+
+    public AudioManager AudioManager => audioManager;
 
     private void Awake() {
         if (!instance) instance = this;
@@ -26,6 +34,13 @@ public class GameController : MonoBehaviour
     public void LoadGameSceneAgain() {
         StartCoroutine(LoadLevelRoutine(pendingLoadLevelOption));
     }
+    //load next level
+    public void LoadNextLevelGameScene() {
+        int nextLevel = pendingLoadLevelOption.Level + 1;
+        LoadLevelOption nextLoadOption = LoadLevelOption.Create(nextLevel);
+        LoadGameScene(nextLoadOption);
+    }
+
 
     private IEnumerator LoadLevelRoutine(LoadLevelOption option) {
         yield return SceneManager.LoadSceneAsync(GameScene.ByName.Game);

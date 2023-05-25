@@ -1339,6 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 7514005243288278789}
+  pathData: []
 --- !u!1 &7109503215028762877
 GameObject:
   m_ObjectHideFlags: 0

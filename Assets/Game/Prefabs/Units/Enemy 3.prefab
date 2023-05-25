@@ -52,7 +52,9 @@ MonoBehaviour:
   movementSpeed: 2
   weaponId: 0
   skeletonAnim: {fileID: 5677656960017063874}
+  effectTransform: {fileID: 0}
   currentRoom: {fileID: 0}
+  target: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:
@@ -119,7 +121,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e7f9ca5b32ac99498270c45190928d6, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

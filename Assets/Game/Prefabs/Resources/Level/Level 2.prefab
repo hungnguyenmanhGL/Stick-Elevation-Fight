@@ -6468,6 +6468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 129425059873911214}
+  pathData: []
 --- !u!1001 &810533608582575818
 PrefabInstance:
   m_ObjectHideFlags: 0

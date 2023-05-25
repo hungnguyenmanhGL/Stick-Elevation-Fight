@@ -16,6 +16,8 @@ public class Character : Unit
     [SerializeField] protected Room currentRoom;
     [SerializeField] protected Character target;
 
+    [SerializeField] protected List<AnimEffect> animEffectList;
+
     protected bool defeated = false;
 
     public string CharacterId => characterId;
@@ -105,8 +107,11 @@ public class Character : Unit
 public class AnimEffect {
     [SerializeField, Spine.Unity.SpineEvent] private string animEvent;
     [SerializeField] private GameObject sfxPrefab;
+    [SerializeField] private AudioClip audioPrefab;
 
     public string AnimEvent => animEvent;
+    public GameObject SFXPrefab => sfxPrefab;
+    public AudioClip AudioPrefab => audioPrefab;
 
     public GameObject GetEffectPrefab() {
         GameObject effect = PoolManager.instance.GetObject(sfxPrefab);

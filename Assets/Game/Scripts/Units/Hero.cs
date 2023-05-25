@@ -14,7 +14,7 @@ public class Hero : Character {
     [SerializeField] private Transform hip;
     [SerializeField] private HeroAnim heroAnim;
 
-    [SerializeField] private List<AnimEffect> animEffectList;
+    //[SerializeField] private List<AnimEffect> animEffectList;
 
     private bool lvlCompleted = false;
     private Coroutine moveCoroutine;
@@ -213,19 +213,23 @@ public class Hero : Character {
 
     #region SFX Effect
     protected override void OnAnimEvent(TrackEntry entry, Spine.Event e) {
-        GameObject effect = GetEventEffect(e.Data.Name); 
-        if (effect != null && target != null) {
-            //base.OnAnimEvent(entry, e);
-            effect.transform.position = target.GetRandomEffectPosition();
+        AnimEffect effect = GetAnimEffect(e.Data.Name);
+        if (effect != null && target) {
+            GameObject sfx = effect.SFXPrefab;
+            if (sfx != null) effect.GetEffectPrefab().transform.position = target.GetRandomEffectPosition();
+            AudioClip clip = effect.AudioPrefab;
+            if (clip) GameController.instance.AudioManager.Play(clip);
         }
+       
     }
-    private GameObject GetEventEffect(string eventName) {
-        GameObject effect = null;
+
+    private AnimEffect GetAnimEffect(string eventName) {
+        AnimEffect result = null;
         foreach (AnimEffect animEffect in animEffectList) {
-            if (animEffect.AnimEvent.Equals(eventName)) 
-                effect = animEffect.GetEffectPrefab();
+            if (animEffect.AnimEvent.Equals(eventName))
+                result = animEffect;
         }
-        return effect;
+        return result;
     }
     #endregion
 }

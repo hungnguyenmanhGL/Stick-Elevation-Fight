@@ -382,6 +382,46 @@ MonoBehaviour:
   effectTransform: {fileID: 0}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: H_hit
+    sfxPrefab: {fileID: 0}
+    audioPrefab: {fileID: 8300000, guid: 4979614d23c786c47b8f684416e2e61b, type: 3}
+  - animEvent: H_punch_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 7dffaebf103c30847a00d7e36751a131, type: 3}
+  - animEvent: H_punch_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 7dffaebf103c30847a00d7e36751a131, type: 3}
+  - animEvent: H_kick_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 62ef8e9b4d28ec54c9087dd13bf21d23, type: 3}
+  - animEvent: H_kick_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: aa65d95ab0e2fea4282e9698e3a1ae0e, type: 3}
+  - animEvent: H_gun_trigger
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 839ac84f1ea0960449182d8320f85a48, type: 3}
+  - animEvent: H_gun_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 4342b50e1c7b1354eb9e538d3a99d76a, type: 3}
+  - animEvent: H_gun_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 4342b50e1c7b1354eb9e538d3a99d76a, type: 3}
+  - animEvent: H_sword_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 59112a7f000a5a1418d6d41e91910fd8, type: 3}
+  - animEvent: H_sword_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: cba95e3ba256cee4a92647a2b063d794, type: 3}
+  - animEvent: H_spear_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 303fabcbf96ab34449ee554c440cbcc9, type: 3}
+  - animEvent: H_spear_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 303fabcbf96ab34449ee554c440cbcc9, type: 3}
+  - animEvent: H_spear_throw
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: d886f99564105814888cece2a8f9eb4a, type: 3}
   destination: {x: 0, y: 0, z: 0}
   skeletonRootMotion: {fileID: 4269488037169008115}
   heroState: 0
@@ -417,29 +457,6 @@ MonoBehaviour:
       - win/win_6
       - win/win_7
       - win/win_8
-  animEffectList:
-  - animEvent: H_hit
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
-  - animEvent: H_gun_finish
-    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
-  - animEvent: H_punch_finish
-    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
-  - animEvent: H_spear_finish
-    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
-  - animEvent: H_sword_finish
-    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
-  - animEvent: H_kick_finish
-    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
-  - animEvent: H_gun_normal
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
-  - animEvent: H_kick_normal
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
-  - animEvent: H_punch_normal
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
-  - animEvent: H_spear_normal
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
-  - animEvent: H_sword_normal
-    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!61 &6224826360247130065
 BoxCollider2D:
   m_ObjectHideFlags: 0

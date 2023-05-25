@@ -30,20 +30,39 @@ public class Character : Unit
 
     }
 
+    #region SFX Effect
     protected virtual void OnAnimEvent(TrackEntry entry, Spine.Event e) {
-        if (e.Data != null) { Debug.Log(e.Data.Name); }
+        AnimEffect effect = GetAnimEffect(e.Data.Name);
+        if (effect != null && target) {
+            GameObject sfx = effect.SFXPrefab;
+            if (sfx != null) effect.GetEffectPrefab().transform.position = target.GetRandomEffectPosition();
+            AudioClip clip = effect.AudioPrefab;
+            if (clip) GameController.instance.AudioManager.Play(clip);
+        }
+
+    }
+
+    protected AnimEffect GetAnimEffect(string eventName) {
+        AnimEffect result = null;
+        foreach (AnimEffect animEffect in animEffectList) {
+            if (animEffect.AnimEvent.Equals(eventName))
+                result = animEffect;
+        }
+        return result;
     }
 
     public virtual Vector3 GetEffectAnchor() {
         Vector3 pos = effectTransform.position;
         return pos;
     }
+
     public virtual Vector3 GetRandomEffectPosition() {
         float randX = Random.Range(-.2f, 0.5f);
         float randY = Random.Range(-.2f, 0.5f);
         Vector3 pos = effectTransform.position + new Vector3(randX, randY, 0);
         return pos;
     }
+    #endregion
 
     public void SetRoom(Room room) { this.currentRoom = room; }
 

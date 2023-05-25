@@ -9,10 +9,13 @@ public class ResultPanel : Panel
 {
     [SerializeField] private Button homeBtn;
     [SerializeField] private Button playAgainBtn;
+    [SerializeField] private Button nextLvlBtn;
 
     [SerializeField] private TextMeshProUGUI resultTMP;
     [SerializeField] private SkeletonGraphic skeletonGraphic;
     [SerializeField] private ResultAnim resultAnim;
+
+    [SerializeField] private GameObject comingSoon;
 
     private static readonly string winTxt = "Level Completed!";
     private static readonly string loseTxt = "You lost!";
@@ -21,6 +24,13 @@ public class ResultPanel : Panel
         base.Init();
         homeBtn.onClick.AddListener(OnHomeBtnClicked);
         playAgainBtn.onClick.AddListener(OnPlayAgainBtnClicked);
+        nextLvlBtn.onClick.AddListener(OnNextLevelBtnClicked);
+
+        comingSoon.gameObject.SetActive(false);
+        if (!GameController.instance.CheckNextLevel()) {
+            nextLvlBtn.gameObject.SetActive(false);
+            comingSoon.SetActive(true);
+        }
     }
 
     public void InitResult(bool win) {
@@ -31,6 +41,9 @@ public class ResultPanel : Panel
         else {
             skeletonGraphic.AnimationState.SetAnimation(0, resultAnim.lose.GetAnim(), false);
             resultTMP.text = loseTxt;
+
+            nextLvlBtn.gameObject.SetActive(false);
+            homeBtn.transform.position = nextLvlBtn.transform.position;
         }
     }
 
@@ -39,6 +52,9 @@ public class ResultPanel : Panel
     }
     public void OnPlayAgainBtnClicked() {
         GameController.instance.LoadGameSceneAgain();
+    }
+    public void OnNextLevelBtnClicked() {
+        GameController.instance.LoadNextLevelGameScene();
     }
 }
 

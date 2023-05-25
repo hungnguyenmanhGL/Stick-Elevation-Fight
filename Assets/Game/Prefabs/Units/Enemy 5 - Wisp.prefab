@@ -302,6 +302,16 @@ MonoBehaviour:
   effectTransform: {fileID: 2066879751}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: E_cast
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: f69964d6dc1bebe43b56edf27c743b70, type: 3}
+  - animEvent: E_kame_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: c01050ff8305d02419e1b383f627f393, type: 3}
+  - animEvent: E_kame_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: e27c708fc3d0fca4aad49cb5d7576a4e, type: 3}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:
@@ -372,7 +382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0f552aa502f51a047adcfaa6474f6d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

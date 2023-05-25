@@ -571,6 +571,19 @@ MonoBehaviour:
   effectTransform: {fileID: 416396204389899408}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: E_kick_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 62ef8e9b4d28ec54c9087dd13bf21d23, type: 3}
+  - animEvent: E_hammer_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: a1d48d8f2d5696249b2382c3e82377df, type: 3}
+  - animEvent: E_hammer_throw
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: a1d48d8f2d5696249b2382c3e82377df, type: 3}
+  - animEvent: E_hammer_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: a1d48d8f2d5696249b2382c3e82377df, type: 3}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:
@@ -639,7 +652,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c14e7aa1d0043bc4fbfc3e2d38632bad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

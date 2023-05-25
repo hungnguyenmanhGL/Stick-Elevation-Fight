@@ -736,7 +736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 243460e6f5385a4448ac5cc28bdfc200, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -875,6 +875,19 @@ MonoBehaviour:
   effectTransform: {fileID: 455849118502527327}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: E_kick
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 62ef8e9b4d28ec54c9087dd13bf21d23, type: 3}
+  - animEvent: E_sword_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: d6536272bbcec9c4bbd2f263865617cb, type: 3}
+  - animEvent: E_sword_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 36d9bc4ee4731d54cbef2dfdfb445af0, type: 3}
+  - animEvent: E_dash
+    sfxPrefab: {fileID: 0}
+    audioPrefab: {fileID: 8300000, guid: 80dc89c2e0614874bb09be69ad530c6f, type: 3}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:

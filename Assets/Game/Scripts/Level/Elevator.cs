@@ -36,17 +36,16 @@ public class Elevator : Room
     }
 
     private void OnLevelReceivedClick(Vector3 clickedPos) {
-        clickedPos = Camera.main.ScreenToWorldPoint(clickedPos);
-        Vector2Int clickedCell = (Vector2Int)pathHolder.Tilemap.WorldToCell(clickedPos);
-        //Debug.Log(clickedCell);
-        List<Vector2Int> path = pathHolder.GetPath((Vector2Int)GetCurrentCellPosition(), clickedCell);
-
+       
         if (autoMoveCoroutine != null) {
             stopSignal = true;
         }
 
         if (!isMoving && canMove) {
-            
+            clickedPos = Camera.main.ScreenToWorldPoint(clickedPos);
+            Vector2Int clickedCell = (Vector2Int)pathHolder.Tilemap.WorldToCell(clickedPos);
+            //Debug.Log(clickedCell);
+            List<Vector2Int> path = pathHolder.GetPath((Vector2Int)GetCurrentCellPosition(), clickedCell);
             if (path != null) {
                 autoMoveCoroutine = StartCoroutine(MoveByPath(path));
             }

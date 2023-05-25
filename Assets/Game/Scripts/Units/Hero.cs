@@ -211,27 +211,7 @@ public class Hero : Character {
         return false;
     }
 
-    #region SFX Effect
-    protected override void OnAnimEvent(TrackEntry entry, Spine.Event e) {
-        AnimEffect effect = GetAnimEffect(e.Data.Name);
-        if (effect != null && target) {
-            GameObject sfx = effect.SFXPrefab;
-            if (sfx != null) effect.GetEffectPrefab().transform.position = target.GetRandomEffectPosition();
-            AudioClip clip = effect.AudioPrefab;
-            if (clip) GameController.instance.AudioManager.Play(clip);
-        }
-       
-    }
-
-    private AnimEffect GetAnimEffect(string eventName) {
-        AnimEffect result = null;
-        foreach (AnimEffect animEffect in animEffectList) {
-            if (animEffect.AnimEvent.Equals(eventName))
-                result = animEffect;
-        }
-        return result;
-    }
-    #endregion
+    
 }
 
 [System.Serializable]

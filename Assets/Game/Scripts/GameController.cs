@@ -27,8 +27,13 @@ public class GameController : MonoBehaviour
     }
 
     public void LoadGameScene(LoadLevelOption option) {
-        pendingLoadLevelOption = option;
-        StartCoroutine(LoadLevelRoutine(option));
+        if (option.Level <= maxLevel) {
+            pendingLoadLevelOption = option;
+            StartCoroutine(LoadLevelRoutine(option));
+        }
+        else {
+            LoadHomeScene();
+        }
     }
     //load level again for play again button
     public void LoadGameSceneAgain() {
@@ -41,7 +46,6 @@ public class GameController : MonoBehaviour
         LoadGameScene(nextLoadOption);
     }
 
-
     private IEnumerator LoadLevelRoutine(LoadLevelOption option) {
         yield return SceneManager.LoadSceneAsync(GameScene.ByName.Game);
 
@@ -50,7 +54,7 @@ public class GameController : MonoBehaviour
             LevelController lvl = Instantiate(lvlPrefab);
             lvl.Init();
         }
-        else { Debug.Log(string.Format("No level {0} fond!", option.Level)); }
+        else { Debug.Log(string.Format("No level {0} found!", option.Level)); }
     }
 
     public void LoadHomeScene() {
@@ -62,8 +66,14 @@ public class GameController : MonoBehaviour
 
         Panel panel = HUD.instance.Push(PanelEnum.home);
     }
+
+    public bool CheckNextLevel() {
+        if (pendingLoadLevelOption.Level < maxLevel) return true;
+        return false;
+    }
 }
 
+//NOTE: Level in game resources starts from 1
 public struct LoadLevelOption {
     private string path;
     private int level;
@@ -80,6 +90,7 @@ public struct LoadLevelOption {
         LoadLevelOption option = new LoadLevelOption { level = level, path = path, skin = skin, weapon = weapon };
         return option;
     }
+   
 }
 
 public enum GameState {

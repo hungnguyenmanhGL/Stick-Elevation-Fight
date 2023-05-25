@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 388061347}
-  maxLevel: 0
+  maxLevel: 3
 --- !u!114 &388061346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,21 +198,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 388061348}
   audioList:
+  - {fileID: 8300000, guid: 59112a7f000a5a1418d6d41e91910fd8, type: 3}
+  - {fileID: 8300000, guid: cba95e3ba256cee4a92647a2b063d794, type: 3}
+  - {fileID: 8300000, guid: 36d9bc4ee4731d54cbef2dfdfb445af0, type: 3}
   - {fileID: 8300000, guid: d6536272bbcec9c4bbd2f263865617cb, type: 3}
   - {fileID: 8300000, guid: 41e379ff24ea4f24b85b02c9a32cefaf, type: 3}
   - {fileID: 8300000, guid: 7dffaebf103c30847a00d7e36751a131, type: 3}
   - {fileID: 8300000, guid: 4342b50e1c7b1354eb9e538d3a99d76a, type: 3}
   - {fileID: 8300000, guid: 839ac84f1ea0960449182d8320f85a48, type: 3}
-  - {fileID: 8300000, guid: fd7669575bb2f8b4c961381d46f5dd00, type: 3}
-  - {fileID: 8300000, guid: 7e19f4275221b8b4ba4d2f725f893806, type: 3}
-  - {fileID: 8300000, guid: aa1e32bd87dac424bb7bf12ad5c73003, type: 3}
   - {fileID: 8300000, guid: aa65d95ab0e2fea4282e9698e3a1ae0e, type: 3}
   - {fileID: 8300000, guid: 62ef8e9b4d28ec54c9087dd13bf21d23, type: 3}
-  - {fileID: 8300000, guid: cb8eb35bd6ce41a4d9b346faf5186853, type: 3}
   - {fileID: 8300000, guid: 4979614d23c786c47b8f684416e2e61b, type: 3}
-  - {fileID: 8300000, guid: cba95e3ba256cee4a92647a2b063d794, type: 3}
   - {fileID: 8300000, guid: 303fabcbf96ab34449ee554c440cbcc9, type: 3}
   - {fileID: 8300000, guid: d886f99564105814888cece2a8f9eb4a, type: 3}
+  - {fileID: 8300000, guid: 3a8557a3d9ea06942b8337d5c39e3949, type: 3}
+  - {fileID: 8300000, guid: a1d48d8f2d5696249b2382c3e82377df, type: 3}
+  - {fileID: 8300000, guid: fd7669575bb2f8b4c961381d46f5dd00, type: 3}
+  - {fileID: 8300000, guid: 5c413cd7b8ce08043916f35b61f51fa0, type: 3}
+  - {fileID: 8300000, guid: c414facb963c2bb46aa798d891bca4e1, type: 3}
+  - {fileID: 8300000, guid: f69964d6dc1bebe43b56edf27c743b70, type: 3}
+  - {fileID: 8300000, guid: 7b14bac7459f55d4eb6c3376d5416c9c, type: 3}
+  - {fileID: 8300000, guid: 44539f4f0ee589e4a964e5871148ebd0, type: 3}
 --- !u!82 &388061348
 AudioSource:
   m_ObjectHideFlags: 0

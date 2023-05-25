@@ -109,6 +109,10 @@ MonoBehaviour:
   effectTransform: {fileID: 4084861467837304154}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: E_lazer
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: fd7669575bb2f8b4c961381d46f5dd00, type: 3}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:
@@ -179,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f45a96fd3de658c4ba7547c84d7f4fe4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

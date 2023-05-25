@@ -55,9 +55,13 @@ public class Enemy : Character
         UpdatePowerTxt();
         Init();
         ChangeState(EnemyState.Idle, false);
+
+        skeletonAnim.AnimationState.Event += OnAnimEvent;
     }
 
     private void OnDisable() {
+        skeletonAnim.AnimationState.Event -= OnAnimEvent;
+
         if (defeated) OnEnemyDefeated(this);
     }
 

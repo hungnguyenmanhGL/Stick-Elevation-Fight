@@ -379,7 +379,7 @@ MonoBehaviour:
   movementSpeed: 4
   weaponId: 0
   skeletonAnim: {fileID: 6461177569958977922}
-  effectTransform: {fileID: 0}
+  effectTransform: {fileID: 1542832759943399845}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
   animEffectList:
@@ -422,6 +422,9 @@ MonoBehaviour:
   - animEvent: H_spear_throw
     sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
     audioPrefab: {fileID: 8300000, guid: d886f99564105814888cece2a8f9eb4a, type: 3}
+  - animEvent: H_throb
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 3a8557a3d9ea06942b8337d5c39e3949, type: 3}
   destination: {x: 0, y: 0, z: 0}
   skeletonRootMotion: {fileID: 4269488037169008115}
   heroState: 0

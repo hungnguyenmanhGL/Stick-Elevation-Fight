@@ -9,10 +9,10 @@ public class AudioManager : MonoBehaviour
 
 
     public void Play(AudioClip requestedAudio) {
-        Debug.Log(requestedAudio.name);
+        //Debug.Log(requestedAudio.name);
         foreach (AudioClip audio in audioList) {
             if (audio.name.Equals(requestedAudio.name)) {
-                Debug.Log("found");
+                //Debug.Log("found");
                 audioSource.clip = audio;
                 audioSource.Play();
             }

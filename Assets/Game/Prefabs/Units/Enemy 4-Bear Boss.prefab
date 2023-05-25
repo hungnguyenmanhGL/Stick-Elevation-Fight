@@ -518,6 +518,16 @@ MonoBehaviour:
   effectTransform: {fileID: 1567318083}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList:
+  - animEvent: E_punch
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 629869983977155499b076a6b868e95b, type: 3}
+  - animEvent: E_throb
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+    audioPrefab: {fileID: 8300000, guid: 3a8557a3d9ea06942b8337d5c39e3949, type: 3}
+  - animEvent: E_scream
+    sfxPrefab: {fileID: 0}
+    audioPrefab: {fileID: 8300000, guid: 53208caa794d737468ddb7274977386c, type: 3}
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:
@@ -588,7 +598,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 5669086a3e822b54e9c78f35e66ecba2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

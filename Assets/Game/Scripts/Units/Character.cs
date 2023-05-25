@@ -12,10 +12,11 @@ public class Character : Unit
     [SerializeField] protected int weaponId = 0;
 
     [SerializeField] protected SkeletonAnimation skeletonAnim;
+    [SerializeField] protected Transform effectTransform;
     [SerializeField] protected Room currentRoom;
+    [SerializeField] protected Character target;
 
     protected bool defeated = false;
-
 
     public string CharacterId => characterId;
     public int WeaponId => weaponId;
@@ -29,6 +30,17 @@ public class Character : Unit
 
     protected virtual void OnAnimEvent(TrackEntry entry, Spine.Event e) {
         if (e.Data != null) { Debug.Log(e.Data.Name); }
+    }
+
+    public virtual Vector3 GetEffectAnchor() {
+        Vector3 pos = effectTransform.position;
+        return pos;
+    }
+    public virtual Vector3 GetRandomEffectPosition() {
+        float randX = Random.Range(-.2f, 0.5f);
+        float randY = Random.Range(-.2f, 0.5f);
+        Vector3 pos = effectTransform.position + new Vector3(randX, randY, 0);
+        return pos;
     }
 
     public void SetRoom(Room room) { this.currentRoom = room; }
@@ -85,6 +97,20 @@ public class Character : Unit
 
     public void SetDefeated() {
         defeated = true;
+    }
+}
+
+//play effect when SpineEvent is called
+[System.Serializable]
+public class AnimEffect {
+    [SerializeField, Spine.Unity.SpineEvent] private string animEvent;
+    [SerializeField] private GameObject sfxPrefab;
+
+    public string AnimEvent => animEvent;
+
+    public GameObject GetEffectPrefab() {
+        GameObject effect = PoolManager.instance.GetObject(sfxPrefab);
+        return effect;
     }
 }
 

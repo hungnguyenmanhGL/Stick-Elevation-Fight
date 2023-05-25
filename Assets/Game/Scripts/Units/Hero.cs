@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Spine;
 
 public class Hero : Character {
 
@@ -13,7 +14,7 @@ public class Hero : Character {
     [SerializeField] private Transform hip;
     [SerializeField] private HeroAnim heroAnim;
 
-    [SerializeField, Spine.Unity.SpineEvent] private string spineName;
+    [SerializeField] private List<AnimEffect> animEffectList;
 
     private bool lvlCompleted = false;
     private Coroutine moveCoroutine;
@@ -93,6 +94,7 @@ public class Hero : Character {
     public void Battle(Enemy enemy, System.Action OnCompleted) {
         heroState = HeroState.Fighting;
         OnHeroStatusChanged(HeroState.Fighting);
+        target = enemy;
         StartCoroutine(ResolveBattleResult(enemy, OnCompleted));
     }
 
@@ -134,9 +136,8 @@ public class Hero : Character {
 
             enemy.SetDefeated();
             enemy.gameObject.SetActive(false);
-
-            //move back to elevator after battle
-            
+            target = null;
+            //move back to elevator after battle if level isnt cleared
             if (!lvlCompleted) {
                 heroState = HeroState.Idle;
                 MoveToRoom(lastElevator);
@@ -160,7 +161,7 @@ public class Hero : Character {
         type = UnitType.Hero;
         UpdatePowerTxt();
 
-        //skeletonAnim.AnimationState.Event += OnAnimEvent;
+        skeletonAnim.AnimationState.Event += OnAnimEvent;
 
         LevelController.OnPlayerClickedRoom += MoveToRoom;
         LevelController.OnWin += RespondOnWin;
@@ -168,7 +169,7 @@ public class Hero : Character {
         InGamePanel.OnBtnClicked += IsHeroIdle;
     }
     private void OnDisable() {
-        //skeletonAnim.AnimationState.Event -= OnAnimEvent;
+        skeletonAnim.AnimationState.Event -= OnAnimEvent;
 
         LevelController.OnPlayerClickedRoom -= MoveToRoom;
         LevelController.OnWin -= RespondOnWin;
@@ -209,6 +210,24 @@ public class Hero : Character {
         if (heroState == HeroState.Idle) return true;
         return false;
     }
+
+    #region SFX Effect
+    protected override void OnAnimEvent(TrackEntry entry, Spine.Event e) {
+        GameObject effect = GetEventEffect(e.Data.Name); 
+        if (effect != null && target != null) {
+            //base.OnAnimEvent(entry, e);
+            effect.transform.position = target.GetRandomEffectPosition();
+        }
+    }
+    private GameObject GetEventEffect(string eventName) {
+        GameObject effect = null;
+        foreach (AnimEffect animEffect in animEffectList) {
+            if (animEffect.AnimEvent.Equals(eventName)) 
+                effect = animEffect.GetEffectPrefab();
+        }
+        return effect;
+    }
+    #endregion
 }
 
 [System.Serializable]

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
-  - component: {fileID: 3843920095473885370}
+  - component: {fileID: 3417172010447780844}
   m_Layer: 0
   m_Name: efx_critical
   m_TagString: FxTemporaire
@@ -55,7 +55,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4863,8 +4863,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773570853
-  m_SortingLayer: 6
+  m_SortingLayerID: -2086185993
+  m_SortingLayer: 1
   m_SortingOrder: 1000
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4896,7 +4896,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3843920095473885370
+--- !u!114 &3417172010447780844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4905,9 +4905,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d1f752afb7b9b48b1e2055b1b35926, type: 3}
+  m_Script: {fileID: 11500000, guid: d0fcec641c7e1544485b18a8298925f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  particleSys: {fileID: 19800000}
+  liveTime: 2
 --- !u!1 &196058252523929201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,7 +4961,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9739,8 +9742,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773570853
-  m_SortingLayer: 6
+  m_SortingLayerID: -2086185993
+  m_SortingLayer: 1
   m_SortingOrder: 1000
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -9822,7 +9825,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14603,8 +14606,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773570853
-  m_SortingLayer: 6
+  m_SortingLayerID: -2086185993
+  m_SortingLayer: 1
   m_SortingOrder: 1000
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14686,7 +14689,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -19431,8 +19434,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773570853
-  m_SortingLayer: 6
+  m_SortingLayerID: -2086185993
+  m_SortingLayer: 1
   m_SortingOrder: 1000
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -19514,7 +19517,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -24286,8 +24289,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1773570853
-  m_SortingLayer: 6
+  m_SortingLayerID: -2086185993
+  m_SortingLayer: 1
   m_SortingOrder: 1000
   m_RenderMode: 1
   m_MeshDistribution: 0

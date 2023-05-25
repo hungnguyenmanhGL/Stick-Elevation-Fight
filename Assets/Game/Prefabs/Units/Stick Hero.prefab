@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 7c4bdad1eee2c7f40b5eb5eb2da52f8a, type: 2}
-  initialSkinName: skin/skin_019
+  initialSkinName: skin/skin_00
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
   initialFlipY: 0
@@ -379,7 +379,9 @@ MonoBehaviour:
   movementSpeed: 4
   weaponId: 0
   skeletonAnim: {fileID: 6461177569958977922}
+  effectTransform: {fileID: 0}
   currentRoom: {fileID: 0}
+  target: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   skeletonRootMotion: {fileID: 4269488037169008115}
   heroState: 0
@@ -415,6 +417,29 @@ MonoBehaviour:
       - win/win_6
       - win/win_7
       - win/win_8
+  animEffectList:
+  - animEvent: H_hit
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  - animEvent: H_gun_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+  - animEvent: H_punch_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+  - animEvent: H_spear_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+  - animEvent: H_sword_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+  - animEvent: H_kick_finish
+    sfxPrefab: {fileID: 100000, guid: 73af1a9d2887b9a418906e4d02e61ef1, type: 3}
+  - animEvent: H_gun_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  - animEvent: H_kick_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  - animEvent: H_punch_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  - animEvent: H_spear_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  - animEvent: H_sword_normal
+    sfxPrefab: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
 --- !u!61 &6224826360247130065
 BoxCollider2D:
   m_ObjectHideFlags: 0

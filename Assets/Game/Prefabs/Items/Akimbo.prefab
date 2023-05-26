@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 3534531795558541243}
   - component: {fileID: 3534531795558541240}
   - component: {fileID: 4776651083151789617}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Akimbo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

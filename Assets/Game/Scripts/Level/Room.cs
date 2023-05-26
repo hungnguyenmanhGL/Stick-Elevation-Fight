@@ -21,6 +21,8 @@ public class Room : MonoBehaviour
     public static readonly Vector2 bigRoomSize = new Vector2(13,9);
     public static readonly Vector2 elevatorSize = new Vector2(3, 3);
 
+    public static readonly Vector2Int vectorIntNull = new Vector2Int(-99999, -99999);
+
     public static readonly Vector2 bigRoomBattleVec = new Vector2(3.5f / 13f, 8.5f / 13f);
     public static readonly Vector2 smallRoomBattleVec = new Vector2(1 / 4f, 3 / 4f);
 
@@ -131,7 +133,7 @@ public class Room : MonoBehaviour
         return false;
     }
 
-    virtual public Vector2Int GetConnectionCell() {
+    virtual public Vector2Int GetConnectedPathCell() {
         if (this is not Elevator) {
             Vector3 leftDoorPos = transform.position;
             Vector3 rightDoorPos = new Vector3(transform.position.x + roomSize.x, transform.position.y, transform.position.z);
@@ -143,7 +145,21 @@ public class Room : MonoBehaviour
                 return rightDoorCell;
             }
             return leftDoorCell;
-        } else return new Vector2Int(0, 0);
+        } else return vectorIntNull;
+    }
+    public virtual Vector2Int GetLeftConnectedCell() {
+        if (this is not Elevator) {
+            Vector3 leftDoorPos = transform.position;
+            Vector2Int leftDoorCell = (Vector2Int)LevelController.instance.PathHolder.Tilemap.WorldToCell(leftDoorPos);
+            return leftDoorCell;
+        } else return vectorIntNull;
+    }
+    public virtual Vector2Int GetRightConnectedCell() {
+        if (this is not Elevator) {
+            Vector3 rightDoorPos = new Vector3(transform.position.x + roomSize.x, transform.position.y, transform.position.z);
+            Vector2Int rightDoorCell = (Vector2Int)LevelController.instance.PathHolder.Tilemap.WorldToCell(rightDoorPos);
+            return rightDoorCell;
+        } else return vectorIntNull;
     }
 
     public Vector3Int GetCurrentCellPosition() {

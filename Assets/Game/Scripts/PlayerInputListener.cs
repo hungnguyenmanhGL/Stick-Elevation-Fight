@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public interface IPlayerInputListener {
+    //already translated to world position
     void OnClicked(Vector3 position);
     
 }
@@ -20,7 +21,7 @@ public class PlayerInputListener : MonoBehaviour, IPointerClickHandler {
         this.listener = listener;
     }
 
-    //already translated to world position
+    //only called when clicked on game objects with collider
     public void OnPointerClick(PointerEventData eventData) {
         if (listener != null) {
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(eventData.position);

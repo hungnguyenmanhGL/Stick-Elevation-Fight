@@ -36,7 +36,7 @@ public class Hero : Character {
    
     public HeroState HeroState => heroState;
 
-    private void MoveToRoom(Room destination) {
+    public void MoveToRoom(Room destination) {
         if (heroState != HeroState.Idle) {
             return;
         }

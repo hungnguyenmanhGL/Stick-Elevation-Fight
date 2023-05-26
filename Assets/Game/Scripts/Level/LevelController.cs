@@ -22,13 +22,18 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
 
     [SerializeField] private PathHolder pathHolder;
 
-    [Header("[Data]")]
-    [SerializeField, TextArea(10, 20)] private string jsonData;
+    //[Header("[Data]")]
+    //[SerializeField, TextArea(10, 20)] private string jsonData;
 
     private bool resultDecided = false;
 
+    //to Elevator.cs to move hero to the clicked room
     public delegate void DelPlayerClickedRoom(Room room);
     public static event DelPlayerClickedRoom OnPlayerClickedRoom;
+
+    //to Elevator.cs to move to connected cell of a far away room (if can)
+    public delegate void DelPlayerClickedAwayRoom(Room room);
+    public static event DelPlayerClickedAwayRoom OnPlayerClickedAwayRoom;
 
     public delegate void DelPlayerClicked(Vector3 clickedPos);
     public static event DelPlayerClicked OnPlayerClicked;
@@ -55,8 +60,9 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            //UserClick(Input.mousePosition);
-            OnPlayerClicked?.Invoke(Input.mousePosition);
+            Vector2 rayOrigin = Input.mousePosition;
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, 10f);
+            if (!hit.collider) { OnPlayerClicked?.Invoke(Input.mousePosition); }
         }
     }
 
@@ -85,7 +91,6 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
             Vector3 pos = e.transform.position;
             Vector3Int eCellPos = roomTilemap.WorldToCell(pos);
             foreach (Room r in roomArr) {
-                //r.SetCellPosition();
                 //Debug.Log(r.CellPosition);
                 if (e.Type == UnitType.Enemy && eCellPos == r.CellPosition) {
                     r.UnitList.Add(e);
@@ -103,6 +108,7 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
         }
     }
 
+    //only called when on game object with colliders
     public void OnClicked(Vector3 position) {
         Room currentRoom = hero.CurrentRoom;
         Room clickedRoom;
@@ -118,18 +124,12 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
                     //=> Hero.MoveToRoom(room)
                 }
                 else {
-                    clickedRoom.GetConnectionCell();
+                    Vector2Int desCell = clickedRoom.GetConnectedPathCell();
+                    if (OnPlayerClickedAwayRoom != null) {
+                        OnPlayerClickedAwayRoom(clickedRoom);
+                    }
                 }
             }
-        }
-    }
-
-    public void UserClick(Vector3 position) {
-        if (hero.CurrentRoom is Elevator e) {
-            Vector3 clickedPos = Camera.main.ScreenToWorldPoint(position);
-            Vector2Int clickedCell = (Vector2Int)pathHolder.Tilemap.WorldToCell(clickedPos);
-            //Debug.Log(clickedCell);
-            pathHolder.GetPath((Vector2Int)e.GetCurrentCellPosition(), clickedCell);
         }
     }
 
@@ -182,9 +182,5 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
         for (int i = 0; i < enemyList.Count; i++) {
             if (!enemyList[i] || !enemyList[i].gameObject.activeInHierarchy) enemyList.RemoveAt(i);
         }
-    }
-
-    private void FindResultPanel() {
-
     }
 }

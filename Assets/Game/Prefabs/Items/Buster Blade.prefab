@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6370109613887978636}
   - component: {fileID: 6370109613887978639}
   - component: {fileID: 5222183583600944348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Buster Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

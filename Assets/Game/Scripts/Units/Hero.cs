@@ -14,6 +14,8 @@ public class Hero : Character {
     [SerializeField] private Transform hip;
     [SerializeField] private HeroAnim heroAnim;
 
+    [SerializeField] protected int skinId = 0;
+
     //[SerializeField] private List<AnimEffect> animEffectList;
 
     private bool lvlCompleted = false;
@@ -62,7 +64,7 @@ public class Hero : Character {
             transform.position = Vector3.MoveTowards(transform.position, destination, movementSpeed * Time.deltaTime);
             yield return 0;
         }
-        skeletonAnim.AnimationState.SetAnimation(0, heroAnim.idle.GetAnim(), true);
+        skeletonAnim.AnimationState.SetAnimation(0, GetIdleAnim(), true);
         heroState = HeroState.Idle;
 
         if (room != null) {
@@ -123,7 +125,7 @@ public class Hero : Character {
 
         //get anim end position
         Vector3 rootMotion = data.CheckAtAnimEnd(hip.position);
-        Spine.TrackEntry idleEntry = skeletonAnim.AnimationState.SetAnimation(0, heroAnim.idle.GetAnim(), true);
+        Spine.TrackEntry idleEntry = skeletonAnim.AnimationState.SetAnimation(0, GetIdleAnim(), true);
         idleEntry.MixDuration = 0;
         yield return 0;
 
@@ -178,15 +180,18 @@ public class Hero : Character {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Item item; 
+        Item item = null; 
         collision.gameObject.TryGetComponent<Item>(out item);
 
         if (item) {
             AddPower(item.Power);
-            CombineSkin(item);
             item.gameObject.SetActive(false);
-            weaponId = (int)item.ItemID;
-            OnItemCollected(item.ItemID);
+
+            if (item is Weapon weapon) {
+                CombineSkin(weapon);
+                weaponId = (int)weapon.ItemID;
+                OnItemCollected(item.ItemID);
+            }
         }
     }
 
@@ -198,12 +203,29 @@ public class Hero : Character {
         lvlCompleted = true;
     }
 
+    public void CombineSkin(Item item) {
+        string itemStringId = item.GetItemStringId();
+        //Debug.Log(itemStringId);
+        Skeleton skeleton = skeletonAnim.Skeleton;
+        SkeletonData skeletonData = skeleton.Data;
+        Skin combinedSkin = new Skin("with-weapon");
+
+        Skin normalSkin = skeletonData.FindSkin(string.Format("skin/skin_{0}", GetFormattedStringId(skinId)));
+        string weaponSkinName = string.Format("weapon/{0}_0", itemStringId);
+        //Debug.Log(skinName);
+        combinedSkin.AddSkin(normalSkin);
+        combinedSkin.AddSkin(skeletonData.FindSkin(weaponSkinName));
+        skeleton.SetSkin(combinedSkin);
+        skeleton.SetSlotsToSetupPose();
+    }
+
     private string GetRunAnim() {
-        if (weaponId == 0) {
-            return heroAnim.run.GetAnim();
-        }else {
-            return heroAnim.run_weapon.GetAnim();
-        }
+        return string.Format("run_weapon0{0}", weaponId);
+
+    }
+
+    private string GetIdleAnim() {
+        return string.Format("idle/idle_weapon{0}", GetWeaponStringId());
     }
 
     private bool IsHeroIdle() {

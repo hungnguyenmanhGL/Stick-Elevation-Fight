@@ -230,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 3370418186696254630, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
       propertyPath: hip
       value: 
-      objectReference: {fileID: 7292136483347911932}
+      objectReference: {fileID: 6229114541151542914}
     - target: {fileID: 3370418186696254630, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
       propertyPath: currentRoom
       value: 
@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461177569958977922, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
       propertyPath: initialSkinName
-      value: skin/skin_019
+      value: skin/skin_00
       objectReference: {fileID: 0}
     - target: {fileID: 6461177569958977923, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
       propertyPath: m_Materials.Array.size
@@ -314,6 +314,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6461177570373240148, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
   m_PrefabInstance: {fileID: 8096312452534066521}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &6229114541151542914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2749909279502992347, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
+  m_PrefabInstance: {fileID: 8096312452534066521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6817816775935572479 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3370418186696254630, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
@@ -325,8 +330,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d6b24f20d55d7468ec260e76c92783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7292136483347911932 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1542832759943399845, guid: 94181f92def57994a94b56cbcfd09fda, type: 3}
-  m_PrefabInstance: {fileID: 8096312452534066521}
-  m_PrefabAsset: {fileID: 0}

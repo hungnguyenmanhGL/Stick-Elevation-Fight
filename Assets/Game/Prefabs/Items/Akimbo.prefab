@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 3534531795558541242}
   - component: {fileID: 3534531795558541243}
   - component: {fileID: 3534531795558541240}
-  - component: {fileID: 4776651083151789617}
+  - component: {fileID: 3646537498157301599}
   m_Layer: 2
   m_Name: Akimbo
   m_TagString: Untagged
@@ -419,7 +419,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4776651083151789617
+--- !u!114 &3646537498157301599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3534531795558541245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a32d795c303db04f8bae1f2520abd50, type: 3}
+  m_Script: {fileID: 11500000, guid: 898da033657081f43be343b6852b27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
@@ -536,6 +536,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3422399086291115209, guid: 31b2c67bd521d4f4e97e4599114274fc, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017446949966880933, guid: 31b2c67bd521d4f4e97e4599114274fc, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7017446949966880933, guid: 31b2c67bd521d4f4e97e4599114274fc, type: 3}

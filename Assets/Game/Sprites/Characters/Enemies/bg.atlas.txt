@@ -1,0 +1,6 @@
+bg.png
+size:1024,1024
+filter:Linear,Linear
+pma:true
+image_2023-05-15_17-35-13
+bounds:2,2,606,866

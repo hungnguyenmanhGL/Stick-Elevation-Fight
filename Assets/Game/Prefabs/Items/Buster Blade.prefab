@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6370109613887978637}
   - component: {fileID: 6370109613887978636}
   - component: {fileID: 6370109613887978639}
-  - component: {fileID: 5222183583600944348}
+  - component: {fileID: 4389422912751771068}
   m_Layer: 2
   m_Name: Buster Blade
   m_TagString: Untagged
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5222183583600944348
+--- !u!114 &4389422912751771068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,11 +177,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6370109613887978634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a32d795c303db04f8bae1f2520abd50, type: 3}
+  m_Script: {fileID: 11500000, guid: 898da033657081f43be343b6852b27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  power: 0
+  power: 5
   powerTxt: {fileID: 6524154515155551656}
   itemID: 2
 --- !u!1001 &3322442726420911475

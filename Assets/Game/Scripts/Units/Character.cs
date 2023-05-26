@@ -66,21 +66,6 @@ public class Character : Unit
 
     public void SetRoom(Room room) { this.currentRoom = room; }
 
-    public void CombineSkin(Item item) {
-        string itemStringId = item.GetItemStringId();
-        //Debug.Log(itemStringId);
-        var skeleton = skeletonAnim.Skeleton;
-        var skeletonData = skeleton.Data;
-        var combinedSkin = new Skin("combine-weapon");
-        
-        var skinName = string.Format("weapon/{0}_0", itemStringId);
-        //Debug.Log(skinName);
-        combinedSkin.AddSkin(skeleton.Skin);
-        combinedSkin.AddSkin(skeletonData.FindSkin(skinName));
-        skeleton.SetSkin(combinedSkin);
-        skeleton.SetSlotsToSetupPose();
-    }
-
     public void AddPower(int amount) { 
         power += amount;
         UpdatePowerTxt();
@@ -97,6 +82,11 @@ public class Character : Unit
         if (weaponId < 10) {
             return string.Format("0{0}", weaponId);
         } else return weaponId.ToString();
+    }
+
+    protected string GetFormattedStringId(int id) {
+        if (id < 10) return string.Format("0{0}", id);
+        else return id.ToString();
     }
 
     public const string none = "";

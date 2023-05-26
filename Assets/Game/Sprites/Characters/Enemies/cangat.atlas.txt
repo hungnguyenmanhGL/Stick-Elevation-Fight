@@ -1,0 +1,9 @@
+cangat.png
+size:256,64
+filter:Linear,Linear
+pma:true
+cangat
+bounds:2,2,71,40
+taygat
+bounds:75,22,20,86
+rotate:90

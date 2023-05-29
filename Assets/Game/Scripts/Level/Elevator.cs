@@ -10,6 +10,7 @@ public class Elevator : Room
     private Coroutine autoMoveCoroutine = null;
 
     private bool canMove = true;
+    private bool canDrag = true;
     private bool isMoving = false;
     //private bool isDragging = false;
     private bool stopSignal = false;
@@ -30,13 +31,13 @@ public class Elevator : Room
         Hero.OnHeroStatusChanged += ChangeStateBasedOnHeroState;
         LevelController.OnPlayerClicked += OnLevelReceivedClick;
         LevelController.OnPlayerClickedAwayRoom += OnPlayerClickedAwayRoom;
-        LevelController.OnPause += StopAutoMove;
+        LevelController.OnPause += OnPause;
     }
     private void OnDisable() {
         Hero.OnHeroStatusChanged -= ChangeStateBasedOnHeroState;
         LevelController.OnPlayerClicked -= OnLevelReceivedClick;
         LevelController.OnPlayerClickedAwayRoom -= OnPlayerClickedAwayRoom;
-        LevelController.OnPause -= StopAutoMove;
+        LevelController.OnPause -= OnPause;
 
     }
 
@@ -63,11 +64,15 @@ public class Elevator : Room
     }
     
     private void StopAutoMove() {
-        canMove = !canMove;
         if (autoMoveCoroutine != null) {
             stopSignal = true;
             return;
         }
+    }
+
+    private void OnPause() {
+        canDrag = !canDrag;
+        StopAutoMove();
     }
 
     private void ChangeStateBasedOnHeroState(HeroState heroState) {

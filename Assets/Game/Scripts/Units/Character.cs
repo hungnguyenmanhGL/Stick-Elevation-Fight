@@ -37,7 +37,10 @@ public class Character : Unit
             GameObject sfx = effect.SFXPrefab;
             if (sfx != null) effect.GetEffectPrefab().transform.position = target.GetRandomEffectPosition();
             AudioClip clip = effect.AudioPrefab;
-            if (clip) GameController.instance.AudioManager.Play(clip);
+            if (clip != null) {
+                //Debug.Log(string.Format("Event: {0} sound: {1}", e.Data.Name, effect.AudioPrefab.name));
+                GameController.instance.AudioManager.Play(clip);
+            } 
         }
 
     }
@@ -108,6 +111,10 @@ public class Character : Unit
 
     public void SetDefeated() {
         defeated = true;
+    }
+
+    public void SetTarget(Character target) {
+        this.target = target;
     }
 }
 

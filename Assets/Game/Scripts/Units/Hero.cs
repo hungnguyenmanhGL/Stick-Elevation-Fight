@@ -97,6 +97,7 @@ public class Hero : Character {
         heroState = HeroState.Fighting;
         OnHeroStatusChanged(HeroState.Fighting);
         target = enemy;
+        enemy.SetTarget(this);
         StartCoroutine(ResolveBattleResult(enemy, OnCompleted));
     }
 

@@ -134,7 +134,7 @@ public class Enemy : Character
         LookAt(patrolDes);
 
         float delta = Vector3.Distance(patrolDes, transform.position) / movementSpeed;
-        patrolTween = transform.DOMove(patrolDes, delta, false).SetEase(Ease.InOutSine);
+        patrolTween = transform.DOMove(patrolDes, delta, false).SetEase(Ease.Linear);
         SetMoveAnim();
 
         yield return new WaitForSeconds(delta);

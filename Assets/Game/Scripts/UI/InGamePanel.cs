@@ -11,6 +11,8 @@ public class InGamePanel : Panel
     public delegate bool DelInLevelBtnClicked();
     public static event DelInLevelBtnClicked OnBtnClicked;
 
+    
+
     public override void Init() {
         base.Init();
         inventoryBtn.onClick.AddListener(OnInventoryBtnClicked);

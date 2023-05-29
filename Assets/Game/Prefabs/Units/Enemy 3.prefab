@@ -55,6 +55,7 @@ MonoBehaviour:
   effectTransform: {fileID: 0}
   currentRoom: {fileID: 0}
   target: {fileID: 0}
+  animEffectList: []
   destination: {x: 0, y: 0, z: 0}
   idleDurationRange: {x: 1, y: 5}
   enemyAnim:

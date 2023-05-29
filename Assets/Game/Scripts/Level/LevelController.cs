@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using SimpleJSON;
+using UnityEngine.EventSystems;
 
 public class LevelController : MonoBehaviour, IPlayerInputListener {
     public static LevelController instance;
@@ -22,6 +23,8 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
 
     [SerializeField] private PathHolder pathHolder;
 
+    bool isPaused = false;
+
     //[Header("[Data]")]
     //[SerializeField, TextArea(10, 20)] private string jsonData;
 
@@ -37,6 +40,9 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
 
     public delegate void DelPlayerClicked(Vector3 clickedPos);
     public static event DelPlayerClicked OnPlayerClicked;
+
+    public delegate void DelPaused();
+    public static event DelPaused OnPause;
 
     //to Hero.cs to dance 
     public delegate void DelWin();
@@ -59,7 +65,7 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !isPaused && !EventSystem.current.IsPointerOverGameObject()) {
             Vector2 rayOrigin = Input.mousePosition;
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero, 10f);
             if (!hit.collider) { OnPlayerClicked?.Invoke(Input.mousePosition); }
@@ -168,14 +174,21 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
     private void OnEnable() {
         Hero.OnHeroDefeated += PlayerLost;
         Enemy.OnEnemyDefeated += RemoveDisabledEnemy;
-
+        PausePanel.OnPanelStateChange += SetPause;
         //AssignEnemyToRoom();
     }
 
     private void OnDisable() {
         Hero.OnHeroDefeated -= PlayerLost;
         Enemy.OnEnemyDefeated -= RemoveDisabledEnemy;
+        PausePanel.OnPanelStateChange -= SetPause;
 
+    }
+
+    private void SetPause() { 
+        isPaused = !isPaused;
+        OnPause?.Invoke();
+        //Debug.Log(isPaused); 
     }
 
     private void FilterEnemyList() {

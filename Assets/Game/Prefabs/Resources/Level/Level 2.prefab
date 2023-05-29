@@ -4566,7 +4566,6 @@ MonoBehaviour:
   roomTilemap: {fileID: 4028951142588087095}
   entityTilemap: {fileID: 1283848782816981241}
   pathHolder: {fileID: 1737462947652168692}
-  jsonData: 
 --- !u!114 &4028951141616729798
 MonoBehaviour:
   m_ObjectHideFlags: 0

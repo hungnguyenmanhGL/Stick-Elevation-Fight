@@ -8,6 +8,8 @@ public class PausePanel : Panel
     [SerializeField] private Button replayBtn;
     [SerializeField] private Button homeBtn;
 
+    public delegate void DelPanelStateChanged();
+    public static event DelPanelStateChanged OnPanelStateChange;
     public override void Init() {
         base.Init();
         replayBtn.onClick.AddListener(OnReplayBtnClicked);
@@ -20,5 +22,14 @@ public class PausePanel : Panel
 
     public void OnHomeBtnClicked() {
         GameController.instance.LoadHomeScene();
+    }
+
+    protected override void OnEnable() {
+        base.OnEnable();
+        OnPanelStateChange?.Invoke();
+    }
+
+    private void OnDisable() {
+        OnPanelStateChange?.Invoke();
     }
 }

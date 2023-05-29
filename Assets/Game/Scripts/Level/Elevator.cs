@@ -30,19 +30,18 @@ public class Elevator : Room
         Hero.OnHeroStatusChanged += ChangeStateBasedOnHeroState;
         LevelController.OnPlayerClicked += OnLevelReceivedClick;
         LevelController.OnPlayerClickedAwayRoom += OnPlayerClickedAwayRoom;
+        LevelController.OnPause += StopAutoMove;
     }
     private void OnDisable() {
         Hero.OnHeroStatusChanged -= ChangeStateBasedOnHeroState;
         LevelController.OnPlayerClicked -= OnLevelReceivedClick;
         LevelController.OnPlayerClickedAwayRoom -= OnPlayerClickedAwayRoom;
+        LevelController.OnPause -= StopAutoMove;
+
     }
 
     private void OnLevelReceivedClick(Vector3 clickedPos) {
-       
-        if (autoMoveCoroutine != null) {
-            stopSignal = true;
-            return;
-        }
+        StopAutoMove();
 
         if (!isMoving && canMove) {
             clickedPos = Camera.main.ScreenToWorldPoint(clickedPos);
@@ -56,13 +55,18 @@ public class Elevator : Room
     }
 
     private void OnPlayerClickedAwayRoom(Room room) {
-        if (autoMoveCoroutine != null) {
-            stopSignal = true;
-            return;
-        }
+        StopAutoMove();
 
         if (!isMoving && canMove) {
             StartCoroutine(MoveToRoom(room));
+        }
+    }
+    
+    private void StopAutoMove() {
+        canMove = !canMove;
+        if (autoMoveCoroutine != null) {
+            stopSignal = true;
+            return;
         }
     }
 

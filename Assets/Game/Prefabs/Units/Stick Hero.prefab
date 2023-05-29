@@ -413,6 +413,7 @@ MonoBehaviour:
       - win/win_6
       - win/win_7
       - win/win_8
+  skinId: 0
 --- !u!61 &6224826360247130065
 BoxCollider2D:
   m_ObjectHideFlags: 0

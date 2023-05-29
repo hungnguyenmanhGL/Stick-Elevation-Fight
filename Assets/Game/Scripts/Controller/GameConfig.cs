@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameConfig : MonoBehaviour
 {
     private void Awake() {
-        QualitySettings.vSyncCount = 0;
+        //QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 }

@@ -116,19 +116,26 @@ public class Room : MonoBehaviour
     }
 
     virtual public bool CheckConnectionToClickedRoom(Room destination) {
+        
         if (destination is not Elevator) return false;
         else {
-            Vector2 destinationCellSize = elevatorSize;
-            Vector2 destinationPos = destination.transform.position;
+            Elevator e = (Elevator)destination;
+            if (e.IsMoving) return false;
 
-            if (destinationPos.y == transform.position.y) {
-                if (destinationPos.x + destinationCellSize.x == transform.position.x) {
-                    return true;
-                }
-                if (transform.position.x + roomSize.x == destinationPos.x) {
-                    return true;
-                }
-            }
+            Vector2Int elevatorCell = (Vector2Int)e.GetCurrentCellPosition();
+            if (GetLeftConnectedCell() == elevatorCell) return true;
+            if (GetRightConnectedCell() == elevatorCell) return true;
+            //Vector2 destinationCellSize = elevatorSize;
+            //Vector2 destinationPos = destination.transform.position;
+
+            //if (destinationPos.y == transform.position.y) {
+            //    if (destinationPos.x + destinationCellSize.x == transform.position.x) {
+            //        return true;
+            //    }
+            //    if (transform.position.x + roomSize.x == destinationPos.x) {
+            //        return true;
+            //    }
+            //}
         }
         return false;
     }
@@ -205,10 +212,10 @@ public class Room : MonoBehaviour
         }
         else if (roomType == RoomType.Big) {
             if (hero.transform.position.x < transform.position.x) {
-                return new Vector3(transform.position.x + roomSize.x / 4, transform.position.y, hero.transform.position.z);
+                return new Vector3(transform.position.x +  roomSize.x / 5, transform.position.y, hero.transform.position.z);
 
             } else {
-                return new Vector3(transform.position.x + 3 * roomSize.x / 4, transform.position.y, hero.transform.position.z);
+                return new Vector3(transform.position.x + 4 * roomSize.x / 5f, transform.position.y, hero.transform.position.z);
             }
         }
         return Vector3.zero;

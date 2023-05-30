@@ -21,6 +21,7 @@ public class Elevator : Room
 
     private PathHolder pathHolder;
 
+    public bool IsMoving => isMoving;
     private void Start() {
         roomType = RoomType.Elevator;
         pathHolder = LevelController.instance.PathHolder;

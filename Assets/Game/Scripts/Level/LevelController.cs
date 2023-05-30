@@ -56,6 +56,7 @@ public class LevelController : MonoBehaviour, IPlayerInputListener {
 
     public PathHolder PathHolder => pathHolder;
     public IngameInventory Inventory => inventory;
+    public Hero Hero => hero;
 
     private void Awake() {
         if (!instance) instance = this;

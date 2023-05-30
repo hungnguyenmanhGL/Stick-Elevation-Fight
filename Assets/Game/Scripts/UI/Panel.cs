@@ -35,5 +35,5 @@ public enum PanelEnum {
     spin = 1,
     pause = 2,
     result = 3,
-    
+    inventory = 4
 }

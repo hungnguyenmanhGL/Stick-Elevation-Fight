@@ -92,6 +92,10 @@ public class Character : Unit
         else return id.ToString();
     }
 
+    protected string GetWeaponFormattedStringId(int id) {
+        return string.Format("weapon{0}", GetFormattedStringId(id));
+    }
+
     public const string none = "";
     public const string hero = "hero";
     public const string enemy0 = "enemy0";

@@ -220,6 +220,24 @@ public class Hero : Character {
         skeleton.SetSlotsToSetupPose();
     }
 
+    public void CombineSkin(ItemID id) {
+        string itemStringId = GetWeaponFormattedStringId((int)id);
+        //Debug.Log(itemStringId);
+        Skeleton skeleton = skeletonAnim.Skeleton;
+        SkeletonData skeletonData = skeleton.Data;
+        Skin combinedSkin = new Skin("with-weapon");
+
+        Skin normalSkin = skeletonData.FindSkin(string.Format("skin/skin_{0}", GetFormattedStringId(skinId)));
+        string weaponSkinName = string.Format("weapon/{0}_0", itemStringId);
+        //Debug.Log(skinName);
+        combinedSkin.AddSkin(normalSkin);
+        combinedSkin.AddSkin(skeletonData.FindSkin(weaponSkinName));
+        skeleton.SetSkin(combinedSkin);
+        skeleton.SetSlotsToSetupPose();
+
+        skeletonAnim.AnimationState.SetAnimation(0, GetIdleAnim(), true);
+    }
+
     private string GetRunAnim() {
         return string.Format("run_weapon0{0}", weaponId);
 
@@ -234,7 +252,10 @@ public class Hero : Character {
         return false;
     }
 
-    
+    public void SetWeapon(ItemID id) {
+        weaponId = (int)id;
+        CombineSkin(id);
+    }
 }
 
 [System.Serializable]

@@ -116,7 +116,7 @@ public class Elevator : Room
     }
 
     private IEnumerator MoveToNextCellPosition() {
-        while (Vector2.Distance(transform.position, nextPos) >= 0.0001f) {
+        while (Vector2.Distance(transform.position, nextPos) != 0f) {
             isMoving = true;
             transform.position = Vector3.MoveTowards(transform.position, nextPos, movementSpeed * Time.deltaTime);
             yield return 0;

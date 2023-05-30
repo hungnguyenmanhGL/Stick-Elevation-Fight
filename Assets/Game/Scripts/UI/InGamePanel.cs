@@ -11,8 +11,6 @@ public class InGamePanel : Panel
     public delegate bool DelInLevelBtnClicked();
     public static event DelInLevelBtnClicked OnBtnClicked;
 
-    
-
     public override void Init() {
         base.Init();
         inventoryBtn.onClick.AddListener(OnInventoryBtnClicked);
@@ -25,7 +23,10 @@ public class InGamePanel : Panel
         }
     }
     public void OnInventoryBtnClicked() {
-
+        if (CheckHeroIdleState()) {
+            Panel panel = HUD.instance.Push(PanelEnum.inventory);
+            panel.Show();
+        }
     }
 
     public bool CheckHeroIdleState() {
@@ -36,38 +37,5 @@ public class InGamePanel : Panel
         //Debug.Log(idle);
         return idle;
     }
-    //[SerializeField] private Button openBtn;
-    //[SerializeField] private Button closeBtn;
-    //[SerializeField] private GameObject inventoryPanel;
-
-    //[SerializeField] private Button equipBtn;
-    //[SerializeField] private FocusScrollRect weaponScrollRect;
-
-    //private int selectedIndex = -1;
-    //private List<int> weapons;
-    //private List<ScrollItem> scrollItems;
-
-
-    //private void ShowPanel() {
-    //    UpdateWeaponScroll();
-    //    bool heroIdle = false;
-    //    if (OnInventoryClicked != null) {
-    //        heroIdle = OnInventoryClicked();
-    //    }
-    //    if (heroIdle) inventoryPanel.SetActive(true);
-    //}
-
-    //private void UpdateWeaponScroll() {
-    //    if (LevelController.instance != null) {
-    //        scrollItems = new List<ScrollItem>();
-    //        foreach (ItemID id in LevelController.instance.Inventory.ItemList) {
-    //            scrollItems.Add(new ScrollItem((int)id));
-    //        }
-    //        weaponScrollRect.UpdateData(scrollItems);
-    //    }
-    //}
-
-    //private void ClosePanel() {
-    //    inventoryPanel.SetActive(false);
-    //}
+    
 }

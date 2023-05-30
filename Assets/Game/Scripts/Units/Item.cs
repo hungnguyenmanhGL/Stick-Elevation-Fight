@@ -13,7 +13,7 @@ public class Item : Unit
         UpdatePowerTxt();
     }
 
-    public string GetItemStringId() {
+    public virtual string GetItemStringId() {
         if ((int)itemID < 10) {
             return string.Format("weapon0{0}", (int)itemID);
         } else return string.Format("weapon{0}", (int)itemID);

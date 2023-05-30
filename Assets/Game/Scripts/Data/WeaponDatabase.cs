@@ -15,4 +15,11 @@ public class WeaponDatabase : ScriptableObject
         if (!instance) instance = this;
         else Destroy(this);
     }
+
+    public WeaponData GetData(ItemID id) {
+        foreach (WeaponData data in list) {
+            if (data.Id == id) return data;
+        }
+        return null; 
+    }
 }
